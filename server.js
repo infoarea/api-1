@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const userRoute = require('./routes/user');
+const teacherRoute = require('./routes/teacher');
 
 
 //express init
@@ -19,7 +20,8 @@ app.use(express.urlencoded({ extended : false }));
 
 
 
-app.use('/api/v1/user', userRoute)
+app.use('/api/v1/user', userRoute);
+app.use('/api/v1/teacher', teacherRoute);
 
 app.listen(PORT, ()=> {
     console.log(`server is running ${PORT}`.bgGreen.black);
