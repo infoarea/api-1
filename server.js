@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
+const userRoute = require('./routes/user');
 
 
 //express init
@@ -16,6 +17,9 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+
+
+app.use('/api/v1/user', userRoute)
 
 app.listen(PORT, ()=> {
     console.log(`server is running ${PORT}`.bgGreen.black);
